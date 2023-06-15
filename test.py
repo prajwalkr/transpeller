@@ -12,7 +12,7 @@ from dataloader import get_dataloader
 args = load_args()
 from dataloader import Batch
 
-from utils import IOU, load, levenshtein
+from utils import load, levenshtein
 
 scaler = torch.cuda.amp.GradScaler()
 from torch.cuda.amp import autocast

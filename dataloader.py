@@ -7,8 +7,6 @@ import numpy as np
 from config import pad_token, load_args
 import pandas as pd
 
-from scipy.io import loadmat
-
 args = load_args()
 
 class Batch:
@@ -54,12 +52,10 @@ class Dataset:
 		end = int(float(self.ends[idx]) * 25./self.frame_stride)
 		text = self.texts[idx]
 
-		feat_path = f"{args.feat_root}/{feat_path}/features.mat"
-
-		feats = loadmat(feat_path)["preds"]
+		feats = np.load(f"{args.feat_root}/{feat_path}.npy")
+		feats = torch.FloatTensor(feats[start : end])
 
 		ctc_target = torch.LongTensor(self.to_ids(text))
-		feats = torch.FloatTensor(feats[start : end])
 
 		if self.upsampling > 1:
 			feats = feats.unsqueeze(1).repeat(1, self.upsampling, 1).reshape(-1, feats.size(-1))
