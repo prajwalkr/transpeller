@@ -17,7 +17,9 @@ This is the official implementation of the paper. The code has been tested with 
 
 ## Reproducing the scores on the test set
 
-`python test.py --ckpt_path data/transpeller.pth --builder localizer_ctc --test_csv data/fingerspelling-data-bmvc2022/transpeller-test.csv --feat_root features/video-swin-s_c8697_16f_bs32/`
+```bash
+python test.py --ckpt_path data/transpeller.pth --builder localizer_ctc --test_csv data/fingerspelling-data-bmvc2022/transpeller-test.csv --feat_root features/video-swin-s_c8697_16f_bs32/
+```
 
 The above run should give a CER of `53.1`. You can also turn on the `--full_word_test` flag to compute CER with the full words, which should be `59.9`. 
 
