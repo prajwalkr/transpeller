@@ -25,7 +25,7 @@ The above run should give a CER of `53.1`. You can also turn on the `--full_word
 
 ## Using Video-Swin as a feature extractor
 
-We also release the pre-trained Video-Swin model which is used to extract the features mentioned above. The model has been trained on person-crops of the BOBSL dataset. You can get the pre-trained checkpoint [here](https://www.robots.ox.ac.uk/~vgg/research/transpeller/video-swin-s.pth). Below is a small example of how to use it:
+We also release the pre-trained Video-Swin model which is used to extract the features mentioned above. The model has been trained on person crops of the BOBSL dataset. The model will work best if the signer crops are similar to that of the BOBSL signer crops. You can get the pre-trained checkpoint [here](https://www.robots.ox.ac.uk/~vgg/research/transpeller/video-swin-s.pth). Below is a small example of how to use it:
 
 ```python
 from videoswin import SwinTransformer3D, VideoPreprocessing
@@ -42,7 +42,7 @@ clip = # read an *RGB* video clip with size (batch_size, 3, 16, 256, 256). This 
 clip = vp(clip) # (batch_size, 3, 16, 224, 224)
 
 features = model(clip) # (batch_size, 768)
-```
+``` 
 
 License and Citation
 ----------
