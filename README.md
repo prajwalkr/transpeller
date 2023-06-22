@@ -37,7 +37,7 @@ model = load("video-swin-s.pth")[0]
 
 vp = VideoPreprocessing()
 
-clip = # read video clip with size (batch_size, 3, 16, 256, 256)
+clip = # read an *RGB* video clip with size (batch_size, 3, 16, 256, 256). This can be done using OpenCV, for example. 
 
 clip = vp(clip) # (batch_size, 3, 16, 224, 224)
 
